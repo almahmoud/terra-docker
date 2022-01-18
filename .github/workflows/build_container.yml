@@ -1,0 +1,19 @@
+name: Build Container Image
+on: push
+jobs:
+  build:
+    name: Build container image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: sh .github/scripts/build_bioc.sh
+        shell: bash
+      - name: Login to quay.io
+        uses: actions-hub/docker/login@master
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Push to quay.io with branch name
+        uses: actions-hub/docker@master
+        with:
+          args: push almahmoud/terra-jupyter:bioc
