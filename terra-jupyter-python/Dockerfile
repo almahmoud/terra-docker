@@ -1,4 +1,4 @@
-FROM us.gcr.io/broad-dsp-gcr-public/terra-jupyter-base:1.0.3
+FROM us.gcr.io/broad-dsp-gcr-public/terra-jupyter-base:1.0.11
 USER root
 # This makes it so pip runs as root, not the user.
 ENV PIP_USER=false
@@ -20,6 +20,8 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
 
 ENV HTSLIB_CONFIGURE_OPTIONS="--enable-gcs"
 
+COPY requirements.txt /etc/terra-docker/
+
 # Dev note: in general, do not pin Python packages to any particular version.
 # Depend on the smoke tests to help us identify any package incompatibilties.
 #
@@ -30,51 +32,8 @@ ENV HTSLIB_CONFIGURE_OPTIONS="--enable-gcs"
 #    test coverage for the identified problem.
 RUN pip3 -V \
  && pip3 install --upgrade pip \
- && pip3 install --upgrade \
-   py4j \
-   pandas-gbq \
-   seaborn \
-   python-lzo \
-   google-cloud-bigquery-datatransfer \
-   google-cloud-resource-manager \
-   statsmodels \
-   ggplot \
-   bokeh \
-   pyfasta \
-   pdoc3 \
-   biopython \
-   bx-python \
-   fastinterval \
-   matplotlib-venn \
-   bleach \
-   cycler \
-   h5py \
-   html5lib \
-   joblib \
-   # Remove the version pin for keras when tensorflow is updated to 2.7 or higher.
-   keras \
-   patsy \
-   pymc3 \
-   # fix to 2.4.7 so that tensorflow still works
-   pyparsing==2.4.7 \
-   Cython \
-   # Downgrade setuptools from the base image due to incompatibilies with pysam.
-   # As of 2021-09-10, this is the latest version of setuptools that works with pysam.
-   # See https://pypi.org/project/setuptools/#history
-   setuptools==58.0.1 --force-reinstall \
-   pysam --no-binary pysam \
-   python-dateutil \
-   pytz \
-   pyvcf \
-   theano \
-   tqdm \
-   werkzeug \
-   certifi \
-   intel-openmp \
-   mkl \
-   wheel \
-   plotnine \
-   google-resumable-media \
+ && pip3 install --upgrade -r /etc/terra-docker/requirements.txt \
+
  # Remove this after https://broadworkbench.atlassian.net/browse/CA-1179
  # As of release [google-cloud-bigquery 1.26.0 (2020-07-20)](https://github.com/googleapis/python-bigquery/blob/master/CHANGELOG.md#1260-2020-07-20)
  # the BigQuery Python client uses the BigQuery Storage client by default.
@@ -87,6 +46,9 @@ RUN pip3 -V \
  && sed -i 's/pandas.tslib.Timestamp/pandas.Timestamp/g' /opt/conda/lib/python3.7/site-packages/ggplot/stats/smoothers.py \
  && sed -i 's/pd.tslib.Timestamp/pd.Timestamp/g' /opt/conda/lib/python3.7/site-packages/ggplot/stats/smoothers.py \
  && sed -i 's/pd.tslib.Timestamp/pd.Timestamp/g' /opt/conda/lib/python3.7/site-packages/ggplot/utils.py
+
+
+RUN pip3 install --upgrade markupsafe==2.0.1
 
 ENV USER jupyter
 USER $USER

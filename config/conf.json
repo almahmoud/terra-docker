@@ -26,7 +26,7 @@
                     "tidyverse"
                 ]
             },
-            "version" : "2.0.4",
+            "version" : "2.1.7",
             "automated_flags" : {
                 "generate_docs" : true,
                 "include_in_ui" : true,
@@ -47,7 +47,7 @@
                     "hail"
                 ]
             },
-            "version" : "1.0.4",
+            "version" : "1.0.20",
             "automated_flags" : {
                 "generate_docs" : true,
                 "include_in_ui" : true,
@@ -68,7 +68,7 @@
                     "scikit-learn"
                 ]
             },
-            "version" : "1.0.3",
+            "version" : "1.0.13",
             "automated_flags" : {
                 "generate_docs" : true,
                 "include_in_ui" : true,
@@ -83,10 +83,8 @@
             "tools" : [
                 "python"
             ],
-            "packages" : {
-                
-            },
-            "version" : "1.0.3",
+            "packages" : {},
+            "version" : "1.0.11",
             "automated_flags" : {
                 "generate_docs" : true,
                 "include_in_ui" : false,
@@ -101,10 +99,8 @@
             "tools" : [
                 "r"
             ],
-            "packages" : {
-                
-            },
-            "version" : "2.0.4",
+            "packages" : {},
+            "version" : "2.1.6",
             "automated_flags" : {
                 "include_in_ui" : false,
                 "generate_docs" : true,
@@ -121,10 +117,8 @@
                 "python",
                 "r"
             ],
-            "packages" : {
-                
-            },
-            "version" : "2.0.7",
+            "packages" : {},
+            "version" : "2.2.8",
             "automated_flags" : {
                 "include_in_ui" : true,
                 "generate_docs" : true,
@@ -140,10 +134,8 @@
                 "python",
                 "r"
             ],
-            "packages" : {
-                
-            },
-            "version" : "2.0.10",
+            "packages" : {},
+            "version" : "2.1.12",
             "automated_flags" : {
                 "include_in_ui" : false,
                 "generate_docs" : false,
@@ -160,10 +152,8 @@
                 "python",
                 "r"
             ],
-            "packages" : {
-                
-            },
-            "version" : "0.1.6",
+            "packages" : {},
+            "version" : "0.2.6",
             "automated_flags" : {
                 "include_in_ui" : false,
                 "generate_docs" : true,

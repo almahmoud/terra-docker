@@ -1,3 +1,47 @@
+## 1.0.11 - 2022-06-23T10:58:12.961300Z
+
+- Fix leo_url variable in workspace_cromwell.py script for AoU projects
+
+## 1.0.10 - 2022-06-03T18:35:22.582705Z
+
+- reverted, do not use
+
+## 1.0.9 - 2022-05-20T18:06:39.404395Z
+
+- Fix adding workspace_cromwell.py script to manage Cromwell App
+
+Image URL: `us.gcr.io/broad-dsp-gcr-public/terra-jupyter-base:1.0.9`
+
+## 1.0.8 - 2022-05-17T17:14:41.200567Z
+
+- Add script that manages Cromwell app
+
+Image URL: `us.gcr.io/broad-dsp-gcr-public/terra-jupyter-base:1.0.8`
+
+## 1.0.7 - 2022-05-10T22:08:25.901765Z
+
+- Install Cromshell 2.0 (https://github.com/broadinstitute/cromshell)
+
+Image URL: `us.gcr.io/broad-dsp-gcr-public/terra-jupyter-base:1.0.7`
+
+## 1.0.6 - 2022-05-02T14:33:23.893656Z
+
+- use new nvidia key
+
+Image URL: `us.gcr.io/broad-dsp-gcr-public/terra-jupyter-base:1.0.6`
+
+## 1.0.5 - 2022-04-17
+
+- Install gcloud alpha storage dependency
+
+Image URL: `us.gcr.io/broad-dsp-gcr-public/terra-jupyter-base:1.0.5`
+
+## 1.0.4 - 2022-02-02T20:47:42.308006Z
+
+- update notebook_dir to $HOME
+
+Image URL: `us.gcr.io/broad-dsp-gcr-public/terra-jupyter-base:1.0.4`
+
 ## 1.0.3 - 2022-01-06T18:21:41.124056Z
 
 - Bumping Google Deeplearning image to 2.7, removing gcc-6 and gcc-8 install due to package problems

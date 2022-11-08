@@ -1,3 +1,66 @@
+## 2.1.7 - 2022-07-27T13:32:19.884050Z
+
+- Moved AnVIL and supporting packages to be installed in parent image.
+- Update `terra-jupyter-r` to `2.1.6`
+  - Installs AnVIL and supporting packages.
+
+Image URL: `us.gcr.io/broad-dsp-gcr-public/terra-jupyter-bioconductor:2.1.7`
+
+## 2.1.6 - 2022-07-22
+
+- Fix anvil package install
+
+## 2.1.5 - 2022-05-20T18:06:39.449113Z
+
+- Update `terra-jupyter-base` to `1.0.10`
+  - Fix leo_url variable in workspace_cromwell.py script for AoU projects
+
+## 2.1.4 - 2022-05-20T18:06:39.449113Z
+
+- reverted, do not use
+
+## 2.1.3 - 2022-05-20T18:06:39.449113Z
+
+- Update `terra-jupyter-base` to `1.0.9`
+  - Fix adding workspace_cromwell.py script to manage Cromwell App
+
+Image URL: `us.gcr.io/broad-dsp-gcr-public/terra-jupyter-bioconductor:2.1.3`
+
+## 2.1.2 - 2022-05-17T17:14:41.233909Z
+
+- Update `terra-jupyter-base` to `1.0.8`
+  - Add script that manages Cromwell app
+
+Image URL: `us.gcr.io/broad-dsp-gcr-public/terra-jupyter-bioconductor:2.1.2`
+
+## 2.1.1 - 2022-05-10T22:08:25.936576Z
+
+- Update `terra-jupyter-base` to `1.0.7`
+  - Install Cromshell 2.0 (https://github.com/broadinstitute/cromshell)
+
+Image URL: `us.gcr.io/broad-dsp-gcr-public/terra-jupyter-bioconductor:2.1.1`
+
+## 2.1.0 - 2022-05-02
+
+- Update `terra-jupyter-r` to `2.1.0`
+  - Update Bioconductor to 3.15.0 and R to 4.2.0
+
+Image URL: `us.gcr.io/broad-dsp-gcr-public/terra-jupyter-bioconductor:2.1.0`
+
+## 2.0.6 - 2022-05-02T14:33:23.928899Z
+
+- Update `terra-jupyter-base` to `1.0.6`
+  - use new nvidia key
+
+Image URL: `us.gcr.io/broad-dsp-gcr-public/terra-jupyter-bioconductor:2.0.6`
+
+## 2.0.5 - 2022-02-02T20:47:42.326830Z
+
+- Update `terra-jupyter-base` to `1.0.4`
+  - update notebook_dir to $HOME; install scikit-learn-intelex, xgboost
+
+Image URL: `us.gcr.io/broad-dsp-gcr-public/terra-jupyter-bioconductor:2.0.5`
+
 ## 2.0.4 - 2022-01-06T18:21:41.155891Z
 
 - Update `terra-jupyter-base` to `1.0.3`

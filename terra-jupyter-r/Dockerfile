@@ -1,11 +1,11 @@
-FROM us.gcr.io/broad-dsp-gcr-public/terra-jupyter-base:1.0.3
+FROM us.gcr.io/broad-dsp-gcr-public/terra-jupyter-base:1.0.11
 USER root
 
 COPY scripts $JUPYTER_HOME/scripts
 
 # Add env vars to identify binary package installation
 ENV TERRA_R_PLATFORM="terra-jupyter-r"
-ENV TERRA_R_PLATFORM_BINARY_VERSION=3.14.0
+ENV TERRA_R_PLATFORM_BINARY_VERSION=3.15.0
 
 # Install protobuf 3.19.1. Note this version comes from base deep learning image. Use `conda list` to see what's installed
 RUN cd /tmp \
@@ -22,7 +22,7 @@ RUN cd /tmp \
 
 # Add R kernel
 RUN find $JUPYTER_HOME/scripts -name '*.sh' -type f | xargs chmod +x \
- && $JUPYTER_HOME/scripts/kernel/kernelspec.sh $JUPYTER_HOME/scripts/kernel /opt/conda/share/jupyter/kernels 
+ && $JUPYTER_HOME/scripts/kernel/kernelspec.sh $JUPYTER_HOME/scripts/kernel /opt/conda/share/jupyter/kernels
 
 # https://cran.r-project.org/bin/linux/ubuntu/README.html
 RUN apt-get update \
@@ -121,7 +121,7 @@ RUN pip3 -V \
 
 RUN R -e 'install.packages("BiocManager")' \
     ## check version
-    && R -e 'BiocManager::install(version="3.14", ask=FALSE)' \
+    && R -e 'BiocManager::install(version="3.15", ask=FALSE)' \
     && R -e 'BiocManager::install(c( \
     "boot", \
     "class", \
@@ -152,12 +152,28 @@ RUN R -e 'install.packages("BiocManager")' \
     "tidyverse", \
     "pbdZMQ", \
     "uuid"))' \
-		&& R -e 'BiocManager::install("DataBiosphere/Ronaldo")'
+    && R -e 'BiocManager::install("DataBiosphere/Ronaldo")'
+    
+# Install Bioconductor packages found at:
+# https://raw.githubusercontent.com/anvilproject/anvil-docker/master/anvil-rstudio-bioconductor/install.R
+RUN R -e 'BiocManager::install(c( \
+    "AnVIL", \
+    "SingleCellExperiment", \ 
+    "GenomicFeatures", \
+    "GenomicAlignments", \ 
+    "ShortRead", \
+    "DESeq2", \
+    "AnnotationHub", \
+    "ExperimentHub", \
+    "ensembldb", \
+    "scRNAseq", \
+    "scran", \
+    "Rtsne"))'
 
 ## pip runs as jupyter user
 ENV PIP_USER=true
 
 RUN R -e 'IRkernel::installspec(user=FALSE)' \
-    && chown -R $USER:users /usr/local/lib/R/site-library
+    && chown -R $USER:users /usr/local/lib/R/site-library /home/jupyter
 
 USER $USER

@@ -1,3 +1,118 @@
+## 2.1.12 - 2022-10-21
+- Update `hail` to `0.2.104`
+  - See https://hail.is/docs/0.2/change_log.html#version-0-2-104) for details
+
+Image URL: `us.gcr.io/broad-dsp-gcr-public/terra-jupyter-aou:2.1.12`
+
+## 2.1.11 - 2022-10-04
+- Update `hail` to `0.2.101`
+  - See https://hail.is/docs/0.2/change_log.html#version-0-2-101) for details
+
+Image URL: `us.gcr.io/broad-dsp-gcr-public/terra-jupyter-aou:2.1.11`
+
+## 2.1.10 - 2022-09-23
+- Update `hail` to `0.2.100`
+  - See https://hail.is/docs/0.2/change_log.html#version-0-2-100) for details
+
+Image URL: `us.gcr.io/broad-dsp-gcr-public/terra-jupyter-aou:2.1.10`
+
+## 2.1.9 - 2022-09-02
+
+ - Add support for QIIME2
+ - Update `hail` to `0.2.98`
+   - See https://hail.is/docs/0.2/change_log.html#version-0-2-98) for details
+
+Image URL: `us.gcr.io/broad-dsp-gcr-public/terra-jupyter-aou:2.1.9`
+
+## 2.1.8 - 2022-07-12
+
+- Revert attempted Java11 upgrade back to Java8
+
+Image URL: `us.gcr.io/broad-dsp-gcr-public/terra-jupyter-aou:2.1.8`
+
+## 2.1.7 - 2022-06-30
+- Update `hail` to `0.2.96`
+  - See https://hail.is/docs/0.2/change_log.html#version-0-2-96) for details
+
+Image URL: `us.gcr.io/broad-dsp-gcr-public/terra-jupyter-aou:2.1.7`
+
+## 2.1.6 - 2022-06-23T10:58:12.961300Z
+
+- Update `terra-jupyter-base` to `1.0.10`
+  - Fix leo_url variable in workspace_cromwell.py script for AoU projects
+
+## 2.1.5 - 2022-06-09
+
+- Update `terra-jupyter-gatk` base to `2.2.5`
+  - Fix Python sites-packages to avoid issues on uninstall
+- Bump Hail to 0.2.93
+
+Image URL: `us.gcr.io/broad-dsp-gcr-public/terra-jupyter-aou:2.1.5`
+
+## 2.1.4 - 2022-06-03T18:35:22.582705Z
+
+- reverted, do not use
+
+## 2.1.3 - 2022-05-20T18:06:39.587654Z
+
+- Update `terra-jupyter-base` to `1.0.9`
+  - Fix adding workspace_cromwell.py script to manage Cromwell App
+
+Image URL: `us.gcr.io/broad-dsp-gcr-public/terra-jupyter-aou:2.1.3`
+
+## 2.1.2 - 2022-05-17T17:14:41.365718Z
+
+- Update `terra-jupyter-base` to `1.0.8`
+  - Add script that manages Cromwell app
+
+Image URL: `us.gcr.io/broad-dsp-gcr-public/terra-jupyter-aou:2.1.2`
+
+## 2.1.1 - 2022-05-10T22:08:26.056998Z
+
+- Update `terra-jupyter-base` to `1.0.7`
+  - Install Cromshell 2.0 (https://github.com/broadinstitute/cromshell)
+
+Image URL: `us.gcr.io/broad-dsp-gcr-public/terra-jupyter-aou:2.1.1`
+
+## 2.1.0 - 2022-05-02
+
+- Update `terra-jupyter-r` to `2.1.0`
+  - Update Bioconductor to 3.15.0 and R to 4.2.0
+
+## 2.0.15 - 2022-05-02T14:33:24.031254Z
+
+- Update `terra-jupyter-base` to `1.0.6`
+  - use new nvidia key
+- Update `terra-jupyter-gatk` to `2.1.0`
+  - Install Nextflow in GATK image
+
+Image URL: `us.gcr.io/broad-dsp-gcr-public/terra-jupyter-aou:2.0.15`
+
+## 2.0.14 - 2022-04-17
+
+- Update `terra-jupyter-gatk` to `2.0.9`
+  - Install gcloud alpha storage dependency
+- Install SAIGE
+- Add igv-jupyter extension by default
+
+## 2.0.13 - 2022-03-18
+
+- Update `terra-jupyter-gatk` to `2.0.8`
+- Update Hail installation to latest
+
+## 2.0.12 - 2022-02-02T20:47:42.403024Z
+
+- Update `terra-jupyter-base` to `1.0.4`
+  - update notebook_dir to $HOME; install scikit-learn-intelex, xgboost
+
+Image URL: `us.gcr.io/broad-dsp-gcr-public/terra-jupyter-aou:2.0.12`
+
+## 2.0.11 - 2022-01-25
+
+- Add additional genomics tools: gcta, PRsice, vcftools, plink2
+
+Image URL: `us.gcr.io/broad-dsp-gcr-public/terra-jupyter-aou:2.0.11`
+
 ## 2.0.10 - 2022-01-06T18:21:41.240337Z
 
 - Update `terra-jupyter-base` to `1.0.3`
