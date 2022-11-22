@@ -36,6 +36,33 @@ env:
   GOOGLE_PROJECT: ${{ secrets.GCP_PROJECT_ID }}
 
 jobs:
+  ghcr:
+    name: Build branch images
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Login to GHCR
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata for container image
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: ghcr.io/${{ github.repository_owner }}/terra-jupyter-bioconductor
+          tags: |
+            type=raw,value={{branch}}
+      - name: Build and push container image to GHCR
+        uses: docker/build-push-action@v3
+        with:
+          file: terra-jupyter-bioconductor/Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
 
   test_docker_image:
     runs-on: ubuntu-latest
